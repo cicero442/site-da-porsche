@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORSCHE</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <style>
+      /* ----------------------------------------------------
+         MÉTODO 3: Animação via CSS Puro (Card 3)
+         Usa o nome da animação 'pulse' do Animate.css de forma contínua
+      ---------------------------------------------------- */
+      .card-css {
+        animation: pulse 2.5s infinite;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 class="animate__animated ">porsche</h2>
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Models</a>
+            <a href="#">Team</a>
+            <a href="#">Experience</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 class="animate__animated "> PORSCHE</h1>
+            <p class="text-hero">THE PORSCHE DELIVERY OF SPEED IS NOTHING SHORT OF FREAKY FAST.</p>
+
+            <!--carro-->
+            <div class="carro-container animate__animated ">
+                <img class="carro-img" src="img/car.webp" alt="porsche">
+                
+                <!--rodas-->
+                <img class="rodas roda-dianteira " src="img/wheel.png" alt="roda">
+                <img class="rodas roda-traseira " src="img/wheel.png" alt="roda">
+            </div>
+        </section>
+
+        <section class="sobre">
+          <h2 class="section-title">POLICHE QT3 RS</h2>
+          <div class="sobre-container">
+            
+            <!-- ----------------------------------------------------
+                 MÉTODO 1: Animação Nativa no HTML (Card 1)
+                 Anima automaticamente ao carregar a página
+            ---------------------------------------------------- -->
+            <div class="info animate__animated animate__infinite animate__zoomInLeft animate__slow">
+              <div class="img-wrapper">
+                <img class="img-info" src="img/1.png" alt="Porsche Vista Traseira">
+              </div>
+              <h3 class="info-title">FRONT</h3>
+              <p class="info-text">Continuous oil or lubricant application process in composite material components.</p>
+            </div>
+
+            <!-- ----------------------------------------------------
+                 MÉTODO 2: Animação Dinâmica via JavaScript (Card 2)
+                 Dispara a animação quando o usuário passa o mouse por cima (mouseenter)
+            ---------------------------------------------------- -->
+            <div class="info" id="cardJS" onmouseenter="animarCardJS()">
+              <div class="img-wrapper">
+                <img class="img-info" src="img/2.png" alt="Porsche Volante">
+              </div>
+              <h3 class="info-title">DETAILED</h3>
+              <p class="info-text">Continuous oil or lubricant application process in composite material components.</p>
+            </div>
+
+            <!-- ----------------------------------------------------
+                 MÉTODO 3: Animação via CSS Puro (Card 3)
+                 Estilizada pela classe .card-css na tag <style>
+            ---------------------------------------------------- -->
+            <div class="info card-css">
+              <div class="img-wrapper">
+                <img class="img-info" src="img/3.png" alt="Porsche Roda">
+              </div>
+              <h3 class="info-title">CN BILGRP TIEXT</h3>
+              <p class="info-text">Continuous oil or lubricant application process in composite material components.</p>
+            </div>
+
+          </div>
+        </section>
+    </main>
+
+    <script>
+      /* ----------------------------------------------------
+         MÉTODO 2: Função JavaScript para o Card 2
+      ---------------------------------------------------- */
+      function animarCardJS() {
+        const card = document.getElementById('cardJS');
+
+        // Adiciona as classes para rodar a animação ao passar o mouse
+        card.classList.add('animate__animated', 'animate__rubberBand');
+
+        // Remove as classes ao fim para permitir repetir no próximo passe de mouse
+        card.addEventListener('animationend', () => {
+          card.classList.remove('animate__animated', 'animate__rubberBand');
+        }, { once: true });
+      }
+    </script>
+</body>
+</html>

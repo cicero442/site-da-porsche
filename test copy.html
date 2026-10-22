@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Atividade Prática - Animate.css</title>
+
+  <!-- CDN do Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f4f7f6;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      width: 200px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+
+
+
+    /* Método 3: Animação via CSS */
+    .card-css {
+      animation: bounce;
+      animation-duration: 2s; 
+      /* ALUNO: Adicione aqui a propriedade 'animation' com o nome da animação do Animate.css */
+    }
+
+
+
+
+    button {
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #4f46e5;
+      color: white;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+
+    .btn-acao {
+      margin-top: 15px;
+      background-color: #10b981;
+    }
+
+    .btn-acao:hover {
+      background-color: #059669;
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  <div class="container">
+
+    <!-- FORMA 1: Aplicar direto no HTML -->
+    <!-- ALUNO: Adicione as classes do Animate.css na div abaixo (ex: animate__animated animate__bounce) -->
+    <div class="card animate__animated animate__bounce">
+      <h3>Elemento 1</h3>
+      <p>Animação no HTML</p>
+    </div>
+
+    <!-- FORMA 2: Aplicar via JavaScript ao Clicar -->
+    <div id="cardJS" class="card">
+      <h3>Elemento 2</h3>
+      <p>Animação via JS</p>
+      <button class="btn-acao" onclick="animarComJS()">Animar</button>
+    </div>
+
+    <!-- FORMA 3: Aplicar via CSS Puro -->
+    <div class="card card-css">
+      <h3>Elemento 3</h3>
+      <p>Animação no CSS</p>
+    </div>
+
+  </div>
+
+  <script>
+    // FORMA 2: Animação via JavaScript
+    function animarComJS() {
+      const el = document.getElementById('cardJS');
+
+      //Adicione as classes do Animate.css ao elemento usando el.classList.add(...)
+      el.classList.add('animate__animated', 'animate__rotateIn');
+
+      // Opcional: Remove as classes após o fim para poder animar de novo
+      el.addEventListener('animationend', () => {
+
+        //Remova as classes usando el.classList.remove(...)
+      }, { once: true });
+    }
+
+  </script>
+
+</body>
+</html>
